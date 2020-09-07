@@ -5,18 +5,15 @@ function dividePelaMetade(numero) {
         return Promise.resolve(numero / 2);
 }
  
-function soAceitaPares(numero) {
-    const promise = new Promise((resolve, reject) => { 
-        if (numero % 2 === 0) { 
-            const resultado = 'Viva, é par!';
-            resolve(resultado);
-        } 
-        else { 
-            reject(new Error("Você passou um número ímpar!"));
-        }});
-    
-    return promise;
-}
+const soAceitaPares = numero => new Promise((resolve, reject) => { 
+    if (numero % 2 === 0) { 
+        const resultado = 'Viva, é par!';
+        resolve(resultado);
+    } 
+    else { 
+        reject(new Error("Você passou um número ímpar!"));
+    }
+});
  
 const numero = 2;
 soAceitaPares(numero)
@@ -33,7 +30,7 @@ Promise.all(promises)
     .then(results => results.forEach(entry => console.log(entry)))
     .catch(error => {
         console.log(error);
-        Promise.reject(error);
+        return Promise.reject(error);
     });
  
 console.log("teste");
