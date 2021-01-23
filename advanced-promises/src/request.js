@@ -15,6 +15,7 @@ class Request {
 
             https.get(url, res => {
                 // items = buffer of data
+                // items.join concatenate buffers
                 const items = []
                 res
                     .on('data', data => items.push(data))
