@@ -14,6 +14,7 @@ class Request {
         return new Promise((resolve, reject) => {
 
             https.get(url, res => {
+                // items = buffer of data
                 const items = []
                 res
                     .on('data', data => items.push(data))
